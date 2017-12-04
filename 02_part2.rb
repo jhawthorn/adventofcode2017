@@ -9,11 +9,8 @@ rows = data.lines.map do |row|
 end
 
 rows.map! do |row|
-  row = row.dup
-  while numerator = row.shift
-    result = row.detect {|denominator| numerator % denominator == 0 }
-    next unless result
-    break numerator / result
+  row.combination(2).each do |numerator, denominator|
+    break numerator / denominator if numerator % denominator == 0
   end
 end
 
