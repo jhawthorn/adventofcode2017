@@ -27,7 +27,6 @@ def distance(n)
   w = Spiral.new.each_diagonal do |d, width|
     if n < d
       midpoint = (d + lastd) / 2
-      p [n - midpoint, width/2]
       break (n - midpoint).abs + (width/2)
     end
     lastd = d
