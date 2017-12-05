@@ -1,15 +1,7 @@
 
 data = File.read("data/05.txt")
 
-data = "0
-3
-0
-1
--3"
-
 data = data.lines.map(&:to_i)
-
-#p data
 
 pc = 0
 steps = 0
