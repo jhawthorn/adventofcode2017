@@ -15,10 +15,8 @@ loop do
   d = 2
   loop do
     e = 2  # loop do
-    loop do
+    2.upto(b-1) do |e|
       f = 0 if d * e - b == 0
-      e += 1
-      break if e - b == 0
     end
     d += 1
     break if d - b == 0
