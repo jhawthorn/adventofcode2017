@@ -12,9 +12,7 @@ b += 100000
 c = b
 c += 17000
 loop do
-  f = 1
-  f = 0 unless b.prime?
-  h += 1 if f == 0
+  h += 1 unless b.prime?
   if b - c == 0
     puts h
     exit 0
