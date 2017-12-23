@@ -13,15 +13,11 @@ c = b
 c += 17000
 loop do
   f = 1
-  d = 2
-  2.upto(b-1) do |d|
-    2.upto(b-1) do |e|
-      f = 0 if d * e - b == 0
-    end
-  end
-  h -= 1 if f == 0
+  f = 0 unless b.prime?
+  h += 1 if f == 0
   if b - c == 0
-    binding.pry
+    puts h
+    exit 0
   end
   b += 17
 end
