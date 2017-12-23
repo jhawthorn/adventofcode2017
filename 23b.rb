@@ -16,23 +16,18 @@ loop do
   loop do
     e = 2  # loop do
     loop do
-      g = d   # loop do
-      g *= e
-      g -= b
+      g = d * e - b
       f = 0 if g == 0
       e += 1
-      g = e
-      g -= b
+      g = e - b
       break if g == 0
     end
     d += 1
-    g = d
-    g -= b
+    g = d - b
     break if g == 0
   end
   h -= 1 if f == 0
-  g = b
-  g -= c
+  g = b - c
   if g == 0
     binding.pry
   end
