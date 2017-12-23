@@ -1,6 +1,6 @@
 require 'pry'
 require 'byebug'
-a = b = c = d = e = f = g = h = 0
+a = b = c = d = e = f = h = 0
 a = 1
 b = 67
 c = b
@@ -16,19 +16,15 @@ loop do
   loop do
     e = 2  # loop do
     loop do
-      g = d * e - b
-      f = 0 if g == 0
+      f = 0 if d * e - b == 0
       e += 1
-      g = e - b
-      break if g == 0
+      break if e - b == 0
     end
     d += 1
-    g = d - b
-    break if g == 0
+    break if d - b == 0
   end
   h -= 1 if f == 0
-  g = b - c
-  if g == 0
+  if b - c == 0
     binding.pry
   end
   b += 17
