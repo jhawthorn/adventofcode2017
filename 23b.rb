@@ -1,5 +1,6 @@
 require 'pry'
 require 'byebug'
+require 'prime'
 a = b = c = d = e = f = h = 0
 a = 1
 b = 67
@@ -13,13 +14,10 @@ c += 17000
 loop do
   f = 1
   d = 2
-  loop do
-    e = 2  # loop do
+  2.upto(b-1) do |d|
     2.upto(b-1) do |e|
       f = 0 if d * e - b == 0
     end
-    d += 1
-    break if d - b == 0
   end
   h -= 1 if f == 0
   if b - c == 0
