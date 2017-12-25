@@ -41,10 +41,9 @@ def part2(input)
   list.each_slice(16).map{|x| "%.2x" % x.inject(:^) }.join
 end
 
-#p part2_data
 raise unless part2("") == "a2582a3a0e66e6e86e3812dcb672a272"
-raise unless part2("AoC 2017")
-p part2("1,2,3")
-p part2("1,2,4")
+raise unless part2("AoC 2017") == '33efeb34ea91902bb2f59c9920caa6cd'
+raise unless part2("1,2,3") == '3efbe78a8d82f29979031a4aa0b16a9d'
+raise unless part2("1,2,4") == '63960835bcdc130f0b66d7ff4f6a5a8e'
 
-p part2(data)
+puts part2(data)
