@@ -43,9 +43,9 @@ def calculate(data)
   [distance(x,y), furthest]
 end
 
-p calculate("ne,ne,ne")
-p calculate("ne,ne,sw,sw")
-p calculate("ne,ne,s,s")
-p calculate("se,sw,se,sw,sw")
-p calculate(data)
+raise unless calculate("ne,ne,ne") == [3,3]
+raise unless calculate("ne,ne,sw,sw") == [0,2]
+raise unless calculate("ne,ne,s,s") == [2,2]
+raise unless calculate("se,sw,se,sw,sw") == [3,3]
+puts calculate(data)
 
