@@ -38,10 +38,8 @@ def calculate(data)
 
   checksum.times do
     val = tape[pos]
-    new_val, move, new_state = transitions[state][val]
-    tape[pos] = new_val
+    tape[pos], move, state = transitions[state][val]
     pos += move
-    state = new_state
   end
   tape.count(1)
 end
