@@ -45,7 +45,7 @@ end
 def calculate(data)
   grid =
     0.upto(127).map do |n|
-      knothash(data + "-#{n}").gsub('1', '#').gsub('0', '.')
+      knothash(data + "-#{n}").tr('01', '.#')
     end
 
   total_squares = grid.join.count('#')
