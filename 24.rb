@@ -12,12 +12,14 @@ test = <<TEST
 9/10
 TEST
 
-def build_from(components: , used: Set.new.compare_by_identity, start: 0, &block)
+def build_from(components: , used: {}.compare_by_identity, start: 0, &block)
   components.fetch(start, []).map do |component|
-    next [] if used.include?(component)
+    next [] if used.key?(component)
 
     to = component[0] == start ? component[1] : component[0]
-    [start, to, *build_from(components: components, used: (used + [component]), start: to, &block)]
+    new_used = Hash[used]
+    new_used[component] = true
+    [start, to, *build_from(components: components, used: new_used, start: to, &block)]
   end.max_by(&block)
 end
 
