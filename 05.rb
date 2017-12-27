@@ -5,8 +5,7 @@ data = data.lines.map(&:to_i)
 
 pc = 0
 steps = 0
-loop do
-  break if pc < 0 || pc >= data.length
+while pc >= 0 && pc < data.length
   offset = data[pc]
   if offset >= 3
     data[pc] -= 1
