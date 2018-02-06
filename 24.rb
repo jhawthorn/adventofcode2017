@@ -12,19 +12,23 @@ test = <<TEST
 9/10
 TEST
 
-def build_from(components: , used: {}.compare_by_identity, start: 0, &block)
-  components.fetch(start, []).map do |component|
-    next [] if used.key?(component)
-
+def build_from(components:, used: {}.compare_by_identity, start: 0, &block)
+  components.fetch(start){ [] }.reject do |component|
+    used.key?(component)
+  end.map do |component|
     to = component[0] == start ? component[1] : component[0]
-    new_used = Hash[used]
+    new_used = used
     new_used[component] = true
-    [start, to, *build_from(components: components, used: new_used, start: to, &block)]
-  end.max_by(&block)
+    r = build_from(components: components, used: new_used, start: to, &block) << to << start
+    new_used.delete(component)
+    r
+  end.max_by(&block) || []
 end
 
 def parse(data)
   data = data.lines.map{|l| l.strip.split('/').map(&:to_i) }
+  data = data.map(&:sort).sort
+  p data.select{|a,b| a == b }
   data.group_by(&:first).merge(data.group_by(&:last)){|k, a, b| a + b }
 end
 
